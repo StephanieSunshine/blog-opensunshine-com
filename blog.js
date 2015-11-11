@@ -1,5 +1,7 @@
+// Define collection
 Posts = new Meteor.Collection('posts');
 
+// Define collection permissions
 Posts.allow({
     insert: function(userId, doc) {
         // only allow posting if you are logged in
@@ -15,11 +17,14 @@ Posts.allow({
     }
 });
 
+// Limit account creation -- turn off when a new user is needed
 Accounts.config({
     forbidClientAccountCreation: true
 });
 
+// Define some schema for autoform
 Posts.attachSchema(new SimpleSchema({
+    // Title of the post
     title: {
         type: String,
         label: "Title",
@@ -31,6 +36,7 @@ Posts.attachSchema(new SimpleSchema({
             }
         }
     },
+    // Short Id for simple URLs
     shortId: {
         type: String,
         defaultValue: ShortId.generate(),
@@ -45,6 +51,7 @@ Posts.attachSchema(new SimpleSchema({
             }
         }
     },
+    // Date
     date: {
         type: Date,
         defaultValue: new Date(),
@@ -59,6 +66,7 @@ Posts.attachSchema(new SimpleSchema({
             }
         }
     },
+    // Comma seporated list of keywords
     keywords: {
         type: String,
         label: "Keywords",
@@ -69,6 +77,7 @@ Posts.attachSchema(new SimpleSchema({
             }
         }
     },
+    // Body of posting
     body: {
         type: String,
         label: "Body",
@@ -82,7 +91,7 @@ Posts.attachSchema(new SimpleSchema({
     }
 }));
 
-
+// Routes
 Router.route('/', function() {
     this.layout('main');
     this.render('posts');
@@ -131,6 +140,7 @@ Router.route('/posts/:shortId', function() {
     });
 });
 
+// Requires an authenticated user
 Router.route('/create', function() {
     if (Meteor.user()) {
         this.layout('main');
@@ -143,6 +153,7 @@ Router.route('/create', function() {
     }
 });
 
+// this feeds main.js for the intro desktop slider. Output is in JSON for easy jQuery parsing
 Router.route('/slider', function() {
     var slider = Posts.find({}, {
         sort: {
@@ -163,9 +174,12 @@ Router.route('/slider', function() {
     where: 'server'
 });
 
+// Client side goodies
 if (Meteor.isClient) {
+    // Get some perms to posts for the clients
     Meteor.subscribe('posts');
-
+    
+    // Login / Logout Authentication
     Template.login.events({
         'submit form': function(event) {
             event.preventDefault();
@@ -180,6 +194,7 @@ if (Meteor.isClient) {
         }
     });
 
+    // Truncate strings for summary views
     UI.registerHelper('shortIt', function(stringToShorten, maxCharsAmount) {
         if (stringToShorten.length > maxCharsAmount) {
             return stringToShorten.substring(0, maxCharsAmount) + '...';
@@ -187,10 +202,12 @@ if (Meteor.isClient) {
         return stringToShorten;
     });
 
+    // Generate a human readable date
     Template.registerHelper("local_date", function(date) {
         return (moment(date).format('MMMM DD, YYYY'));
     });
 
+    // Get a detailed posting
     Template.postDetail.helpers({
         posts: function() {
             var sid = Router.current().params.shortId;
@@ -200,6 +217,7 @@ if (Meteor.isClient) {
         }
     });
 
+    // Navigation highlights Todo: add highlights for auth areas
     Template.nav.helpers({
         current_page_home: function() {
             if ((Router.current().route.getName() == undefined) || (Router.current().route.getName() == 'home')) {
@@ -224,6 +242,7 @@ if (Meteor.isClient) {
         }
     });
 
+    // Render the proper offset of articles in desktop mode
     Template.postsDesktop.helpers({
         posts: function() {
             return (Posts.find({}, {
@@ -235,7 +254,8 @@ if (Meteor.isClient) {
             }));
         }
     });
-
+    
+    // Render the proper articles count for mobile mode
     Template.postsMobile.helpers({
         posts: function() {
             return (Posts.find({}, {
@@ -251,6 +271,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
     Meteor.startup(function() {
         // code to run on server at startup
+        // Allow the posts collection to be manipulated based on ACL's set earlier
         Meteor.publish("posts", function() {
             return Posts.find();
         });
