@@ -108,6 +108,14 @@ Router.route('/login', function() {
     this.render('login');
 });
 
+Router.route('/create_user', function() {
+    this.layout('main');
+    this.render('warmHeader', {
+        to: 'header'
+    }); 
+    this.render('createUser');
+});
+
 Router.route('/home', function() {
     this.layout('main');
     this.render('postsMobile');
