@@ -1,41 +1,34 @@
 <template name="main">
-
-<!-- Splash Screen -->
-<!-- Homepage Slider -->
-<!-- Nav -->
-<!-- Main Section -->
-
-{{> yield "header"}}
-
-<div id="body" class="page"><div class="container"><div class="row"><div class="span12">
-{{> yield}}
-</div></div></div></div>
-
-{{>socialize}}
-<!-- Footer -->
-<footer>
-	<p class="credits page">&copy;2015 openSunshine by <a href="/contact">Stephanie Sunshine</a>.  Template based on the <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Brushed Template</a> by <a href="http://www.alessioatzeni.com/" title="Alessio Atzeni | Web Designer &amp; Front-end Developer">Alessio Atzeni</a></p>
-</footer>
-<!-- End Footer -->
-
-<!-- Back To Top -->
-<a id="back-to-top" href="#">
-	<i class="font-icon-arrow-simple-up"></i>
-</a>
-<!-- End Back to Top -->
-
-
-<!-- Js -->
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> jQuery Core -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/supersized.3.2.7.min.js"></script> <!-- Slider -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/waypoints.js"></script> <!-- WayPoints -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/waypoints-sticky.js"></script> <!-- Waypoints for Header -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/jquery.isotope.js"></script> <!-- Isotope Filter -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
-<script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/main.js"></script> <!-- Default JS -->
-<!-- End Js -->
-
+  {{> yield "header"}}
+  <div id="body" class="page">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          {{> yield}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{>socialize}}
+  <!-- Footer -->
+  <footer>
+    <p class="credits page">&copy;2015 openSunshine by <a href="/contact">Stephanie Sunshine</a>.  Template based on the <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Brushed Template</a> by <a href="http://www.alessioatzeni.com/" title="Alessio Atzeni | Web Designer &amp; Front-end Developer">Alessio Atzeni</a></p>
+  </footer>
+  <!-- End Footer -->
+  <!-- Back To Top -->
+  <a id="back-to-top" href="#">
+  <i class="font-icon-arrow-simple-up"></i>
+  </a>
+  <!-- End Back to Top -->
+  <!-- Js -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/supersized.3.2.7.min.js"></script> <!-- Slider -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/waypoints.js"></script> <!-- WayPoints -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/waypoints-sticky.js"></script> <!-- Waypoints for Header -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/jquery.isotope.js"></script> <!-- Isotope Filter -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+  <script src="//website-opensunshine-com.s3-website-us-west-2.amazonaws.com/javascripts/main.js"></script> <!-- Default JS -->
+  <!-- End Js -->
 </template>

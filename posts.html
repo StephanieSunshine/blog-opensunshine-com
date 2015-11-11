@@ -1,39 +1,35 @@
 <template name="posts">
-{{#if isTV}}{{>postsMobile}}{{/if}}
-{{#if isTablet}}{{>postsMobile}}{{/if}}
-{{#if isPhone}}{{>postsMobile}}{{/if}}
-{{#if isDesktop}}{{>postsDesktop}}{{/if}}
-{{#if isBot}}{{>postsMobile}}{{/if}} 
+  {{#if isTV}}{{>postsMobile}}{{/if}}
+  {{#if isTablet}}{{>postsMobile}}{{/if}}
+  {{#if isPhone}}{{>postsMobile}}{{/if}}
+  {{#if isDesktop}}{{>postsDesktop}}{{/if}}
+  {{#if isBot}}{{>postsMobile}}{{/if}} 
 </template>
-
 <template name="postsDesktop">
-    {{#each posts}}
-    <div class="posts">
-      <h2 class="profile-name">{{title}}</h2>
-      <h5 class="profile-name">Keywords: {{keywords}}<span class="pull-right">Posted: {{local_date date}}</span></h5>
-      <p class="profile-description">{{shortIt body 500}}</p>
-      <div class="social">
-        <a href="/posts/{{shortId}}" class="pull-right">Read     More &gt;</a>
-        {{>socialIcons}}
-      </div>
+  {{#each posts}}
+  <div class="posts">
+    <h2 class="profile-name">{{title}}</h2>
+    <h5 class="profile-name">Keywords: {{keywords}}<span class="pull-right">Posted: {{local_date date}}</span></h5>
+    <p class="profile-description">{{shortIt body 500}}</p>
+    <div class="social">
+      <a href="/posts/{{shortId}}" class="pull-right">Read     More &gt;</a>
+      {{>socialIcons}}
     </div>
-    <hr>
-    {{/each}}
+  </div>
+  <hr>
+  {{/each}}
 </template>
-
 <template name="postsMobile">
-    {{#each posts}}
-    <div class="posts">
-      <h2 class="profile-name">{{title}}</h2>
-      <h5 class="profile-name">Keywords: {{keywords}}<span class="pull-right">Posted: {{local_date date}}</span></h5>
-      <p class="profile-description">{{shortIt body 500}}</p>
-      <div class="social">
-        <a href="/posts/{{shortId}}" class="pull-right">Read     More &gt;</a>
-        {{>socialIcons}}
-      </div>
+  {{#each posts}}
+  <div class="posts">
+    <h2 class="profile-name">{{title}}</h2>
+    <h5 class="profile-name">Keywords: {{keywords}}<span class="pull-right">Posted: {{local_date date}}</span></h5>
+    <p class="profile-description">{{shortIt body 500}}</p>
+    <div class="social">
+      <a href="/posts/{{shortId}}" class="pull-right">Read     More &gt;</a>
+      {{>socialIcons}}
     </div>
-    <hr>
-    {{/each}}
+  </div>
+  <hr>
+  {{/each}}
 </template>
-
-

@@ -1,24 +1,24 @@
 <template name="nav">
-<!-- Nav -->
-<header>
+  <!-- Nav -->
+  <header>
     <div class="sticky-nav">
       <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-            
-        <div id="logo">
-          <a id="goUp" href="/home" title="openSunshine | The journal of Stephanie Sunshine">openSunshine</a>
-        </div>
-            
-        <nav id="menu">
-          <ul id="menu-nav">
-            {{#if currentUser}}<li class="{{current_page_post}}"><a href="/create">Create Post</a></li>{{/if}}
-            {{#if currentUser}}<li><a href="/login">Logout</a></li>{{/if}}
-            <li class="{{current_page_home}}"><a href="/home">Home</a></li>
-            <li class="{{current_page_about}}"><a href="/about">About</a></li>
-            <li class="{{current_page_contact}}"><a href="/contact">Contact</a></li>
-             <!-- <li><a href="#about">Keyword Tree</a></li> -->
-          </ul>
-        </nav>
+      <div id="logo">
+        <a id="goUp" href="/home" title="openSunshine | The journal of Stephanie Sunshine">openSunshine</a>
+      </div>
+      <nav id="menu">
+        <ul id="menu-nav">
+          {{#if currentUser}}
+          <li class="{{current_page_post}}"><a href="/create">Create Post</a></li>
+          <li class="{{current_page_auth}}"><a href="/login">Auth</a></li>
+          {{/if}}
+          <li class="{{current_page_home}}"><a href="/home">Home</a></li>
+          <li class="{{current_page_about}}"><a href="/about">About</a></li>
+          <li class="{{current_page_contact}}"><a href="/contact">Contact</a></li>
+          <!-- <li><a href="#about">Keyword Tree</a></li> -->
+        </ul>
+      </nav>
     </div>
-</header>
-<!-- End Nav -->
+  </header>
+  <!-- End Nav -->
 </template>
