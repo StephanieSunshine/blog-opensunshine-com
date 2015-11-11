@@ -66,7 +66,7 @@ Posts.attachSchema(new SimpleSchema({
             }
         }
     },
-    // Comma seporated list of keywords
+    // Comma separated list of keywords
     keywords: {
         type: String,
         label: "Keywords",
